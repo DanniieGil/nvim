@@ -34,3 +34,5 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.swapfile = false
 
 opt.timeoutlen = 400
+
+opt.mousemoveevent = true

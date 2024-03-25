@@ -11,13 +11,24 @@ return {
         sorter = "case_sensitive",
       },
       view = {
-        width = 30,
+        width = 40,
       },
       renderer = {
         group_empty = true,
       },
       filters = {
         dotfiles = true,
+      },
+      git = {
+        enable = true,
+      },
+      renderer = {
+        highlight_git = true,
+        icons = {
+          show = {
+            git = true,
+          },
+        },
       },
     }
 

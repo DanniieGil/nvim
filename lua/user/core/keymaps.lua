@@ -20,3 +20,7 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 -- Quit
 vim.keymap.set("n", "<leader>qq", ":qa <CR>", { desc = "Quit all" })
 
+-- Move line
+vim.keymap.set("n", "<S-Up>", ":m-2 <CR>", { desc = "Move line to Up" })
+vim.keymap.set("n", "<S-Down>", ":m+ <CR>", { desc = "Move line to Down" })
+
