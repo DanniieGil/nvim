@@ -1,8 +1,9 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm direction=float size=50<CR>", { desc = "Terminal" })
-vim.keymap.set("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical size=50<CR>", { desc = "Terminal Vertical" })
-vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal size=50<CR>", { desc = "Terminal Horizontal" })
+-- ToggleTerm
+vim.keymap.set("n", "<space>t", "<cmd>ToggleTerm direction=float size=50<CR>", { desc = "Terminal Float" })
+vim.keymap.set("n", "<space>tv", "<cmd>ToggleTerm direction=vertical size=50<CR>", { desc = "Terminal Vertical" })
+vim.keymap.set("n", "<space>th", "<cmd>ToggleTerm direction=horizonal size=50<CR>", { desc = "Terminal Horizontal" })
 function _G.set_terminal_keymaps()
   local opts = {buffer = 0}
   vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
