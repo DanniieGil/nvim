@@ -5,9 +5,7 @@ return {
   config = function()
     local harpoon = require("harpoon")
 
-    -- REQUIRED
     harpoon:setup()
-    -- REQUIRED
 
     vim.keymap.set("n", "<leader>h", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Open harpoon window simple" })
     vim.keymap.set("n", "<leader>H", function() harpoon:list():append() end, { desc = "Add file to harpoon list" })
