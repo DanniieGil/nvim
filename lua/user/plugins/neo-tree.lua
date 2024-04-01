@@ -11,6 +11,11 @@ return {
       window = {
         mappings = {
           ["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = true } },
+          ["R"] = { "refresh" },
+          ["i"] = "show_file_details",
+          ["<"] = "prev_source",
+          [">"] = "next_source",
+          ["?"] = "show_help",
         }
       }
     })
