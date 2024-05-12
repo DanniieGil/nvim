@@ -1,27 +1,31 @@
 return {
-  "nvim-neo-tree/neo-tree.nvim",
-  branch = "v3.x",
+  "nvim-neotest/neotest",
   dependencies = {
+    "nvim-neotest/nvim-nio",
     "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-    "MunifTanjim/nui.nvim",
+    "antoinemadec/FixCursorHold.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    "olimorris/neotest-rspec",
   },
   config = function()
-    require("neo-tree").setup({
-      window = {
-        mappings = {
-          ["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = true } },
-          ["R"] = { "refresh" },
-          ["i"] = "show_file_details",
-          ["<"] = "prev_source",
-          [">"] = "next_source",
-          ["?"] = "show_help",
-        }
-      }
+    local neotest = require("neotest")
+    neotest.setup({
+      adapters = {
+        require("neotest-rspec")
+      },
     })
-    vim.keymap.set("n", "<leader>ee", ":Neotree toggle<CR>", { desc = "Open/Close FileSystem NeoTree" })
-    vim.keymap.set("n", "<leader>eef", ":Neotree toggle float<CR>", { desc = "Open/Close Float NeoTree" })
-    vim.keymap.set("n", "<leader>eb", ":Neotree toggle buffers<CR>", { desc = "Open/Close Buffers NeoTree" })
-    vim.keymap.set("n", "<leader>eg", ":Neotree toggle git_status<CR>", { desc = "Open/Close GitStatus NeoTree" })
+
+    vim.keymap.set("n", "<leader>tf", function()
+      neotest.run.run(vim.fn.expand("%"))
+    end)
+    vim.keymap.set("n", "<leader>tn", function()
+      neotest.run.run()
+    end)
+    vim.keymap.set("n", "<leader>ts", function()
+      neotest.summary.toggle()
+    end)
+    vim.keymap.set("n", "<leader>to", function()
+      neotest.output_panel.toggle()
+    end)
   end
 }
